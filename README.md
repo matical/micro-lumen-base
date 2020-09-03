@@ -13,14 +13,14 @@ Before Silex's deprecation, I used [micro-silex-base](https://github.com/matical
 - dev - `composer serve` or `php -S localhost:8000 -t public/ server.php`
 
 ## Developing
-Copy `.env.example` to `.env`. Main *logic* (and maybe helpers) lives in `routes.php`. Framework configuration lives in `bootstrap.php`. 
+Copy `.env.example` to `.env`. Main logic lives in `routes.php`. Framework configuration (and maybe helpers) lives in `bootstrap.php`. 
 
 ### Databases
 - To use sqlite, `touch database/database.sqlite`.
 - Anything else, configure `.env` as usual.
 
 ## Quirks
-Helpers from Illuminate/Foundation (on Laravel) are not available.
+Helpers from Illuminate/Foundation (from Laravel) are not available.
 #### Getting an instance of schema
 ```php
 use Illuminate\Support\Facades\DB;
