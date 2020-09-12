@@ -1,6 +1,7 @@
 <?php
 
 use Laravel\Lumen\Application;
+use Illuminate\Support\Facades\URL;
 use Illuminate\Session\SessionManager;
 use Illuminate\Session\SessionServiceProvider;
 use Illuminate\Session\Middleware\StartSession;
@@ -19,6 +20,11 @@ $app->singleton(SessionManager::class, function () use ($app) {
 $app->singleton('session.store', function () use ($app) {
     return $app->loadComponent('session', SessionServiceProvider::class, 'session.store');
 });
+
+// If you're using a service like Cloudflare, uncomment this out.
+//if ($app->environment() === 'production') {
+//    URL::forceScheme('https');
+//}
 
 /**
  * @param array|string|null $key

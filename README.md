@@ -43,3 +43,11 @@ if ($validator->fails()) {
     return redirect()->route('register');
 }
 ```
+
+#### Serving with Cloudflare/Reverse Proxies
+If you're behind a reverse proxy, uncomment the following lines from `bootstrap.php`. This will avoid the "insecure form submission" popup when you're dealing with error flashing + redirects.
+```php
+if ($app->environment() === 'production') {
+    URL::forceScheme('https');
+}
+```
